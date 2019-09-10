@@ -11,6 +11,18 @@
                 Conversas Recentes
             </ion-list-header>
 
+            <ion-item *ngFor="let chat of chats">
+                <ion-avatar slot="start">
+                    <img src="{{chat.pic}}">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{chat.name}}</h2>
+                    <h3>{{chat.status}}</h3>
+                    <p>{{chat.lastMsg}}</p>
+                </ion-label>
+            </ion-item>
+
+
             <ion-item>
                 <ion-avatar slot="start">
                     <img src="https://fotografiadicas.com.br/wp-content/uploads/2017/10/15-Como-fotografar-pessoas-Fotografia-Dicas.jpg">
@@ -57,7 +69,7 @@
         </ion-list>
 
         <ion-list>
-            <ion-list-header>
+            <ion-list-header class="dot-div">
                 Online <span class="online dot"></span>
             </ion-list-header>
             <ion-item>
@@ -106,7 +118,7 @@
         </ion-list>
 
         <ion-list>
-            <ion-list-header>
+            <ion-list-header class="dot-div">
                 Offline <span class="dot"></span>
             </ion-list-header>
             <ion-item>

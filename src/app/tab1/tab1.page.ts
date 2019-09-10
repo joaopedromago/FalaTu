@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { chatsSeed } from '../../services/seeds';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  public chats = chatsSeed;
+  constructor() {
+    console.log(this.chats);
+  }
 
 }
