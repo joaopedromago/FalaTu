@@ -32,10 +32,12 @@ export class Tab1Page {
   }
   
   private loadOnlineChats(){
-    this.onlineChats = this.chats.filter(x=>x.status==='online');    
+    this.onlineChats = this.chats.filter(x=>x.status==='online');  
+    this.onlineChats = this.onlineChats.slice(0,4);  
   }
   
   private loadOfflineChats(){
-    this.offlineChats = this.chats.filter(x=>x.status==='offline');    
+    this.offlineChats = this.chats.filter(x=>x.status==='offline');   
+    this.offlineChats = this.offlineChats.slice(0,4); 
   }
 }
