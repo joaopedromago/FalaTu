@@ -1,0 +1,6 @@
+{
+    "atlascode.jira.workingSite": {
+        "baseUrlSuffix": "atlassian.net"
+    },
+    "jira-plugin.workingProject": ""
+}
