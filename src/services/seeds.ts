@@ -6,19 +6,19 @@ export var chatsSeed = [
   status: 'online'},
 
   {name:'Raphaela Tolentino',
-  pic:'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj0rfSbhMXkAhXLDrkGHTJPDMoQjRx6BAgBEAQ&url=https%3A%2F%2Fcaruaru.pe.gov.br%2Fsecretarias%2Fpolitica-para-mulheres%2F&psig=AOvVaw391q5YWMfPV2HGQBH8Agj2&ust=1568162816392546',
+  pic:'https://caruaru.pe.gov.br/wp-content/uploads/2018/09/Juliana-Gouveia-Alves-da-Silva.jpeg',
   lastMsg:'Quando vamos nos ver denovo?',
   dataUltimaMsg: '2019-09-10T22:10:23.142Z',
   status: 'offline'},
 
   {name:'Luzia Maria',
-  pic:'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwihtb-RhMXkAhW6GLkGHetfBqMQjRx6BAgBEAQ&url=https%3A%2F%2Fsegredosdomundo.r7.com%2Fmulheres-mais-bonitas-do-mundo%2F&psig=AOvVaw391q5YWMfPV2HGQBH8Agj2&ust=1568162816392546',
+  pic:'https://segredosdomundo.r7.com/wp-content/uploads/2019/05/as-20-mulheres-mais-bonitas-dos-anos-de-2017-e-2018-26.jpg',
   lastMsg:'kkk',
   dataUltimaMsg: '2019-09-10T04:20:24.311Z',
   status: 'online'},
 
     {name:'Gislayne Dias',
-  pic:'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjdgs_wg8XkAhVuHbkGHYb4ARgQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.metropoles.com%2Fcelebridades%2Fjuju-salimeni-choca-ao-revelar-curiosidade-em-transar-com-mulheres&psig=AOvVaw391q5YWMfPV2HGQBH8Agj2&ust=1568162816392546',
+  pic:'https://uploads.metropoles.com/wp-content/uploads/2018/08/14164513/Screenshot_2115.jpg',
   lastMsg:'Pode ser hoje?',
   dataUltimaMsg: '2015-09-10T06:28:53.647Z',
   status: 'offline'},
