@@ -1,9 +1,51 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Configurações
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="stacked">Nome completo <ion-text color="success">*</ion-text></ion-label>
+          <ion-input required type="text" oninput="handleFirstNameValue(event)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Data de Nacimento <ion-text color="success">*</ion-text></ion-label>
+          <ion-datetime displayFormat="DD / MM / YYYY" ></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">Distancia para recomendação <ion-text color="success">*</ion-text></ion-label>
+            <ion-range min="0" max="200" color="success">
+              <ion-label slot="start">0</ion-label>
+              <ion-label slot="end">200</ion-label>
+            </ion-range>
+          </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Address</ion-label>
+          <ion-input placeholder="Address Line 1"></ion-input>
+          <ion-input placeholder="Address Line 2"></ion-input>
+          <ion-input placeholder="City"></ion-input>
+          <ion-input placeholder="State"></ion-input>
+          <ion-input placeholder="Zip Code"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Notes</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+  <ion-item>
+      <ion-label>Kiwi</ion-label>
+      <ion-toggle slot="start" name="kiwi" color="success" checked></ion-toggle>
+  </ion-item>
+
+</ion-content>
