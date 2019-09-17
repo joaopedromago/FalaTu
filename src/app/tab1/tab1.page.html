@@ -11,8 +11,8 @@
                 Conversas Recentes
             </ion-list-header>
 
-            <!-- <app-card-list [listedChats]="recentChats"></app-card-list> -->
-            <ion-item *ngFor="let chat of recentChats">
+            <!-- todo: transformar isso em um componente separado -->
+            <ion-item *ngFor="let chat of recentChats" routerLink="/chat">
                 <ion-avatar slot="start">
                     <img src="{{chat.pic}}">
                 </ion-avatar>
@@ -30,7 +30,7 @@
                 Online <span class="online dot"></span>
             </ion-list-header>
 
-            <ion-item *ngFor="let chat of onlineChats">
+            <ion-item *ngFor="let chat of onlineChats" routerLink="/chat">
                 <ion-avatar slot="start">
                     <img src="{{chat.pic}}">
                 </ion-avatar>
@@ -48,7 +48,7 @@
                 Offline <span class="dot"></span>
             </ion-list-header>
 
-            <ion-item *ngFor="let chat of offlineChats">
+            <ion-item *ngFor="let chat of offlineChats" routerLink="/chat">
                 <ion-avatar slot="start">
                     <img src="{{chat.pic}}">
                 </ion-avatar>
