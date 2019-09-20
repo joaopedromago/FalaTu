@@ -15,6 +15,16 @@ const routes: Routes = [
           import('./chat/chat.module').then(m => m.ChatModule)
       }
     ]
+  },
+  {
+    path: 'match',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./match/match.module').then(m => m.MatchModule)
+      }
+    ]
   }
 ];
 @NgModule({

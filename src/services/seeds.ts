@@ -34,3 +34,13 @@ export var myProfile = {
   pic: 'https://www.semprefamilia.com.br/agora/wp-content/uploads/sites/19/2016/03/marcos-mion-400x472.jpg',
   matchPic: 'https://www.simnoticias.com.br/wp-content/uploads/2017/11/mion.jpeg'
 }
+
+export var matchesSeeds = [{
+  matchPic: 'https://pbs.twimg.com/profile_images/996241848044834817/DhlPMXgt_400x400.jpg'
+},
+{
+  matchPic: 'https://www.ahnegao.com.br/wp-content/uploads/2017/07/img-4-2.jpg'
+},
+{
+  matchPic: 'https://pm1.narvii.com/6344/5a3bf4bed36b95db78a1e7c3a9f36ede3b39301d_hq.jpg'
+}]
