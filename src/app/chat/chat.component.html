@@ -1,4 +1,10 @@
 <ion-toolbar color="success">
+<ion-title>Lara Croft</ion-title>
+<ion-buttons slot="secondary">
+  <ion-button routerLink="/tabs/tab1">
+    <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+  </ion-button>
+</ion-buttons>
   <ion-buttons slot="secondary">
     <ion-button>
       <ion-icon slot="icon-only" name="contact"></ion-icon>
@@ -9,16 +15,26 @@
       <ion-icon slot="icon-only" name="more"></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title>Putiane</ion-title>
-  <ion-buttons slot="primary">
-    <ion-button routerLink="/tabs/tab1">
-      <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
-    </ion-button>
-  </ion-buttons>
 </ion-toolbar>
 
 <ion-content fullscreen>
-  putaria
+
+<ion-list>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-img [src]="personData.pic"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="ion-text-start ion-text-wrap">Palavra puxa palavra, uma idéia traz outra, e assim se faz um livro, um governo, ou uma revolução, alguns dizem mesmo que assim é que a natureza compôs as suas espécies</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label class="ion-text-end ion-text-wrap">Faça o que você ama.</ion-label>
+    <ion-thumbnail slot="end">
+      <ion-img [src]="profile.pic"></ion-img>
+    </ion-thumbnail>
+  </ion-item>
+  
+</ion-list>
+
 </ion-content>
 
 <ion-item>

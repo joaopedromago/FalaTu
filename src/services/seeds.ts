@@ -29,3 +29,8 @@ export var chatsSeed = [
   dataUltimaMsg: '2019-09-10T20:20:05.349Z',
   status: 'online'},
 ];
+
+export var myProfile = {
+  pic: 'https://www.semprefamilia.com.br/agora/wp-content/uploads/sites/19/2016/03/marcos-mion-400x472.jpg',
+  matchPic: 'https://www.simnoticias.com.br/wp-content/uploads/2017/11/mion.jpeg'
+}

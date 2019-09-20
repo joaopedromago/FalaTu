@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { myProfile, chatsSeed } from 'src/services/seeds';
 
 @Component({
   selector: 'app-chat',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
+
+  public profile = myProfile;
+  public personData = chatsSeed[0];
 
   constructor() { }
 
