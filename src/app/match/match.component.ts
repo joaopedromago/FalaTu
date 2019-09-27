@@ -8,6 +8,8 @@ import { myProfile, matchesSeeds } from 'src/services/seeds';
 })
 export class MatchComponent implements OnInit {
 
+  public current = 0;
+
   public profile = myProfile;
 
   public matches = matchesSeeds;
@@ -16,4 +18,7 @@ export class MatchComponent implements OnInit {
 
   ngOnInit() {}
 
+  public showNext(){
+    this.current++;
+  }
 }

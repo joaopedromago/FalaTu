@@ -12,13 +12,16 @@
   </ion-header>
   
   <ion-content>
-      <ion-item>
+      <ion-item *ngIf="matches[current] != null">
           <ion-label class="ion-text-center">E aí?</ion-label>
       </ion-item>
-      <ion-item>
-          <ion-img [src]="matches[0].matchPic"></ion-img>
+      <ion-item *ngIf="matches[current] != null">
+          <ion-img [src]="matches[current].matchPic"></ion-img>
       </ion-item>
-      <ion-button color="danger" style="float:left">Não quero</ion-button>
-      <ion-button color="success" style="float:right">Eu quero</ion-button>
+      <ion-item *ngIf="matches[current] == null">
+        Procurando mais matches...
+      </ion-item>
+      <ion-button *ngIf="matches[current] != null" color="danger" style="float:left" (click)="showNext()">Não quero</ion-button>
+      <ion-button *ngIf="matches[current] != null" color="success" style="float:right" (click)="showNext()">Eu quero</ion-button>
   </ion-content>
   
