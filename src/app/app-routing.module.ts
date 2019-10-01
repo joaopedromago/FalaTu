@@ -4,6 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -25,6 +29,16 @@ const routes: Routes = [
           import('./match/match.module').then(m => m.MatchModule)
       }
     ]
+  },
+  {
+    path: 'login',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./login/login.module').then(m => m.LoginModule)
+      }
+    ]
   }
 ];
 @NgModule({
@@ -33,4 +47,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

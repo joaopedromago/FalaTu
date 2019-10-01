@@ -16,9 +16,13 @@ export class MatchComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  public showNext(){
+  public showNext() {
     this.current++;
+  }
+
+  public clearCount() {
+    this.current = 0;
   }
 }

@@ -1,18 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-        Meu perfil de match
+      {{profile.name}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-item>
-        <ion-label class="ion-text-center">Foto atual pra buscar seu match</ion-label>
-    </ion-item>
-    <ion-item>
-        <ion-img [src]="profile.matchPic"></ion-img>
-    </ion-item>
-    <ion-button expand="block" fill="outline">Alterar foto</ion-button>
-    <ion-button color="danger" expand="block" routerLink="/match">Encontrar + Matches</ion-button>
+  <ion-item>
+    <ion-label class="ion-text-center">Foto atual pra buscar seu match</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-img [src]="profile.matchPic"></ion-img>
+  </ion-item>
+  <ion-button expand="block" fill="outline">Alterar foto</ion-button>
+  <ion-button color="danger" expand="block" routerLink="/match">Encontrar + Matches</ion-button>
 </ion-content>

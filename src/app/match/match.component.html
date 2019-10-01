@@ -3,7 +3,7 @@
     <ion-title>
       Novo Match
     </ion-title>
-    <ion-buttons slot="secondary">
+    <ion-buttons slot="start">
       <ion-button routerLink="/tabs/tab2">
         <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
       </ion-button>
@@ -15,14 +15,21 @@
   <ion-item *ngIf="matches[current] != null">
     <ion-label class="ion-text-center">E aí?</ion-label>
   </ion-item>
-  <ion-item *ngIf="matches[current] != null">
+  <ion-item *ngIf="matches[current] != null" style="text-align: center">
     <ion-img [src]="matches[current].matchPic"></ion-img>
   </ion-item>
   <ion-item *ngIf="matches[current] == null">
     Procurando mais matches...
+    <a (click)="clearCount()"> Carregar</a>
   </ion-item>
-  <ion-button *ngIf="matches[current] != null" color="danger" style="float:left" (click)="showNext()">Não quero
-  </ion-button>
-  <ion-button *ngIf="matches[current] != null" color="success" style="float:right" (click)="showNext()">Eu quero
-  </ion-button>
 </ion-content>
+<ion-segment *ngIf="matches[current] != null">
+  <ion-segment-button value="deny" (click)="showNext()">
+    <ion-icon name="close-circle" color="danger"></ion-icon>
+    <ion-label color="danger">Não quero</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="approve" (click)="showNext()">
+    <ion-icon name="checkmark-circle" color="success"></ion-icon>
+    <ion-label color="success">Eu quero</ion-label>
+  </ion-segment-button>
+</ion-segment>

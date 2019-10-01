@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { myProfile } from 'src/services/seeds';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  public profile = myProfile;
+  constructor() { }
 
 }
