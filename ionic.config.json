@@ -1,5 +1,7 @@
 {
   "name": "FalaTu",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
