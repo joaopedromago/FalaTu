@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { chatsSeed } from '../../services/seeds';
+import { Component } from "@angular/core";
+import { chatsSeed } from "../../services/seeds";
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: "app-tab1",
+  templateUrl: "tab1.page.html",
+  styleUrls: ["tab1.page.scss"]
 })
 export class Tab1Page {
-
   public chats = [];
   public recentChats = [];
   public onlineChats = [];
@@ -20,24 +19,24 @@ export class Tab1Page {
     this.loadOfflineChats();
   }
 
-  private loadRecentChats(){
+  private loadRecentChats() {
     this.recentChats = this.chats;
-    
+
     this.recentChats.sort(function(a, b) {
-      const dateA:any = new Date(a.dataUltimaMsg);
-      const dateB:any = new Date(b.dataUltimaMsg);
+      const dateA: any = new Date(a.dataUltimaMsg);
+      const dateB: any = new Date(b.dataUltimaMsg);
       return dateB - dateA;
-  });
-  this.recentChats = this.recentChats.slice(0,4);
+    });
+    this.recentChats = this.recentChats.slice(0, 4);
   }
-  
-  private loadOnlineChats(){
-    this.onlineChats = this.chats.filter(x=>x.status==='online');  
-    this.onlineChats = this.onlineChats.slice(0,4);  
+
+  private loadOnlineChats() {
+    this.onlineChats = this.chats.filter(x => x.status === "online");
+    this.onlineChats = this.onlineChats.slice(0, 4);
   }
-  
-  private loadOfflineChats(){
-    this.offlineChats = this.chats.filter(x=>x.status==='offline');   
-    this.offlineChats = this.offlineChats.slice(0,4); 
+
+  private loadOfflineChats() {
+    this.offlineChats = this.chats.filter(x => x.status === "offline");
+    this.offlineChats = this.offlineChats.slice(0, 4);
   }
 }

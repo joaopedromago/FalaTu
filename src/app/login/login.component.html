@@ -8,12 +8,12 @@
 
 <ion-grid style="height: 100%">
   <ion-row justify-content-center align-items-center style="height: 100%">
-    <img src="../../assets/icon/fala tu.jpg">
+    <img src="../../assets/icon/fala tu.jpg" />
     <h2>Bem vindo ao Fala Tu!</h2>
   </ion-row>
 </ion-grid>
 
-<ion-button expand="block" routerLink="/tabs/tab1">
+<ion-button expand="block" (click)="login()">
   <ion-icon slot="start" name="logo-google"></ion-icon>
   Entrar com Google
 </ion-button>

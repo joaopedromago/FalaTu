@@ -6,38 +6,56 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-
+<ion-content *ngIf="profile">
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
-
     <ion-item>
       <ion-label position="stacked">&nbsp;</ion-label>
       <ion-avatar slot="start">
-        <img [src]="profile.pic">
+        <img [src]="profile.pic" />
       </ion-avatar>
       <ion-button expand="block" color="primary">Alterar</ion-button>
+      <ion-button slot="end" expand="block" color="danger" (click)="logout()">
+        Sair da conta
+      </ion-button>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Nome completo <ion-text color="success">*</ion-text>
+      <ion-label position="stacked"
+        >Nome completo <ion-text color="success">*</ion-text>
       </ion-label>
-      <ion-input required type="text" [(ngModel)]="profile.name"></ion-input>
+      <ion-input
+        required
+        type="text"
+        [(ngModel)]="profile.name"
+        (change)="updateUser()"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Data de Nacimento <ion-text color="success">*</ion-text>
+      <ion-label position="stacked"
+        >Data de Nacimento <ion-text color="success">*</ion-text>
       </ion-label>
-      <ion-datetime displayFormat="DD / MM / YYYY" [(ngModel)]="profile.birth"></ion-datetime>
+      <ion-datetime
+        displayFormat="DD / MM / YYYY"
+        [(ngModel)]="profile.birth"
+        (ionChange)="updateUser()"
+      ></ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Distância<ion-text color="success">*</ion-text>: {{profile.range}} km
+      <ion-label position="stacked"
+        >Distância<ion-text color="success">*</ion-text>: {{profile.range}} km
       </ion-label>
-      <ion-range pin="false" min="0" max="100" color="success" [(ngModel)]="profile.range">
+      <ion-range
+        pin="false"
+        min="0"
+        max="100"
+        color="success"
+        [(ngModel)]="profile.range"
+        (ionChange)="updateUser()"
+      >
         <ion-icon slot="end" name="bicycle">km</ion-icon>
       </ion-range>
     </ion-item>
   </ion-list>
-
 </ion-content>

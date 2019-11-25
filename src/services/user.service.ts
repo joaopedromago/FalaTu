@@ -1,18 +1,26 @@
 import { map } from "rxjs/operators";
-import { Injectable } from "@angular/core";
 import { User } from "../model";
-import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { AngularFireDatabase } from "angularfire2/database";
+import { auth } from "firebase";
 
 export class UserService {
   constructor(private db: AngularFireDatabase) {}
 
+  getUser(credential: auth.UserCredential) {
+    return this.db
+      .list("User", ref =>
+        ref.orderByChild("email").equalTo(credential.user.email)
+      )
+      .snapshotChanges()
+      .pipe(
+        map(changes => {
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        })
+      );
+  }
+
   insert(User: User) {
-    this.db
-      .list("User")
-      .push(User)
-      .then((result: any) => {
-        console.log(result.key);
-      });
+    return this.db.list("User").push(User);
   }
 
   update(User: User, key: string) {
