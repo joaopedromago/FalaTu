@@ -1,5 +1,9 @@
 import { Component } from "@angular/core";
 import { chatsSeed } from "../../services/seeds";
+import { User } from "src/model";
+import { Storage } from "@ionic/storage";
+import { Router } from "@angular/router";
+import { UserService } from "src/services";
 
 @Component({
   selector: "app-tab1",
@@ -7,16 +11,32 @@ import { chatsSeed } from "../../services/seeds";
   styleUrls: ["tab1.page.scss"]
 })
 export class Tab1Page {
+  public user: User;
   public chats = [];
   public recentChats = [];
   public onlineChats = [];
   public offlineChats = [];
 
-  constructor() {
-    this.chats = chatsSeed;
-    this.loadRecentChats();
-    this.loadOnlineChats();
-    this.loadOfflineChats();
+  constructor(
+    private storage: Storage,
+    private router: Router,
+    private userService: UserService
+  ) {
+    this.storage.get("user").then(result => {
+      const key = JSON.parse(result).key;
+      this.userService.getUserByKey(key).subscribe((userResult: any) => {
+        this.user = userResult;
+        this.storage.set("user", JSON.stringify(this.user)).then(() => {
+          this.chats = Object.entries(this.user.chat).map(element => {
+            return { key: element[0], ...element[1] };
+          });
+
+          this.loadRecentChats();
+          this.loadOnlineChats();
+          this.loadOfflineChats();
+        });
+      });
+    });
   }
 
   private loadRecentChats() {
@@ -38,5 +58,13 @@ export class Tab1Page {
   private loadOfflineChats() {
     this.offlineChats = this.chats.filter(x => x.status === "offline");
     this.offlineChats = this.offlineChats.slice(0, 4);
+  }
+
+  public goToConversaiton(key) {
+    this.storage.set("currentChat", key).then(async () => {
+      await setTimeout(async () => {
+        await this.router.navigate(["/chat"]);
+      });
+    });
   }
 }

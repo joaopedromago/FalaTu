@@ -1,64 +1,76 @@
 <ion-app>
-    <ion-header translucent>
-        <ion-toolbar>
-            <ion-title>Contatos</ion-title>
-        </ion-toolbar>
-    </ion-header>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Contatos</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-    <ion-content fullscreen>
-        <ion-list>
-            <ion-list-header>
-                Conversas Recentes
-            </ion-list-header>
+  <ion-content fullscreen>
+    <ion-list>
+      <ion-list-header>
+        Conversas Recentes
+      </ion-list-header>
 
-            <!-- todo: transformar isso em um componente separado -->
-            <ion-item *ngFor="let chat of recentChats" routerLink="/chat">
-                <ion-avatar slot="start">
-                    <img src="{{chat.pic}}">
-                </ion-avatar>
-                <ion-label>
-                    <h2>{{chat.name}}</h2>
-                    <h3>{{chat.status}}</h3>
-                    <p>{{chat.lastMsg}} - {{chat.lastMsgDate | date: "dd/MM HH:mm:ss"}}</p>
-                </ion-label>
-            </ion-item>
+      <!-- todo: transformar isso em um componente separado -->
+      <ion-item
+        *ngFor="let chat of recentChats"
+        (click)="goToConversaiton(chat.key)"
+      >
+        <ion-avatar slot="start">
+          <img src="{{chat.pic}}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{chat.name}}</h2>
+          <h3>{{chat.status}}</h3>
+          <p>
+            {{chat.lastMsg}} - {{chat.lastMsgDate | date: "dd/MM HH:mm:ss"}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
 
-        </ion-list>
+    <ion-list>
+      <ion-list-header class="dot-div">
+        Online <span class="online dot"></span>
+      </ion-list-header>
 
-        <ion-list>
-            <ion-list-header class="dot-div">
-                Online <span class="online dot"></span>
-            </ion-list-header>
+      <ion-item
+        *ngFor="let chat of onlineChats"
+        (click)="goToConversaiton(chat.key)"
+      >
+        <ion-avatar slot="start">
+          <img src="{{chat.pic}}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{chat.name}}</h2>
+          <h3>{{chat.status}}</h3>
+          <p>
+            {{chat.lastMsg}} - {{chat.lastMsgDate | date: "dd/MM HH:mm:ss"}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
 
-            <ion-item *ngFor="let chat of onlineChats" routerLink="/chat">
-                <ion-avatar slot="start">
-                    <img src="{{chat.pic}}">
-                </ion-avatar>
-                <ion-label>
-                    <h2>{{chat.name}}</h2>
-                    <h3>{{chat.status}}</h3>
-                    <p>{{chat.lastMsg}} - {{chat.lastMsgDate | date: "dd/MM HH:mm:ss"}}</p>
-                </ion-label>
-            </ion-item>
+    <ion-list>
+      <ion-list-header class="dot-div">
+        Offline <span class="dot"></span>
+      </ion-list-header>
 
-        </ion-list>
-
-        <ion-list>
-            <ion-list-header class="dot-div">
-                Offline <span class="dot"></span>
-            </ion-list-header>
-
-            <ion-item *ngFor="let chat of offlineChats" routerLink="/chat">
-                <ion-avatar slot="start">
-                    <img src="{{chat.pic}}">
-                </ion-avatar>
-                <ion-label>
-                    <h2>{{chat.name}}</h2>
-                    <h3>{{chat.status}}</h3>
-                    <p>{{chat.lastMsg}} - {{chat.lastMsgDate | date: "dd/MM HH:mm:ss"}}</p>
-                </ion-label>
-            </ion-item>
-
-        </ion-list>
-    </ion-content>
+      <ion-item
+        *ngFor="let chat of offlineChats"
+        (click)="goToConversaiton(chat.key)"
+      >
+        <ion-avatar slot="start">
+          <img src="{{chat.pic}}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{chat.name}}</h2>
+          <h3>{{chat.status}}</h3>
+          <p>
+            {{chat.lastMsg}} - {{chat.lastMsgDate | date: "dd/MM HH:mm:ss"}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-app>

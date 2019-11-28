@@ -40,7 +40,7 @@ export class AuthService {
               });
             });
           } else {
-            this.storage.set("user", JSON.stringify(user[1])).then(() => {
+            this.storage.set("user", JSON.stringify(user[0])).then(() => {
               this.router.navigate(["/tabs/tab1"]);
             });
           }
@@ -49,7 +49,7 @@ export class AuthService {
     });
   }
 
-  getNewUser(res: auth.UserCredential): User {
+  getNewUser(res: auth.UserCredential): Partial<User> {
     const { user } = res;
 
     return {

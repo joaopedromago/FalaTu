@@ -10,8 +10,7 @@ import { myProfile } from "src/services/seeds";
   styleUrls: ["tab3.page.scss"]
 })
 export class Tab3Page {
-  public profile: User;
-  public key: string;
+  public user: User;
 
   constructor(
     private authService: AuthService,
@@ -19,17 +18,19 @@ export class Tab3Page {
     private userService: UserService
   ) {
     this.storage.get("user").then(result => {
-      const user = JSON.parse(result);
-      this.profile = user;
-      this.key = user.key;
+      this.user = JSON.parse(result);
+      console.log(this.user);
     });
   }
 
   public updateUser() {
-    const updatedUser = { ...this.profile, key: null };
+    const updatedUser = { ...this.user, key: null };
     delete updatedUser.key;
-    this.userService.update(updatedUser, this.key);
-    this.storage.set("user", JSON.stringify({ ...updatedUser, key: this.key }));
+    this.userService.update(updatedUser, this.user.key);
+    this.storage.set(
+      "user",
+      JSON.stringify({ ...updatedUser, key: this.user.key })
+    );
     console.log("updated...");
   }
 

@@ -1,5 +1,5 @@
 <ion-toolbar color="success">
-  <ion-title>Lara Croft</ion-title>
+  <ion-title *ngIf="personData">{{ personData.name }}</ion-title>
   <ion-buttons slot="start">
     <ion-button routerLink="/tabs/tab1">
       <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
@@ -18,27 +18,32 @@
 </ion-toolbar>
 
 <ion-content fullscreen>
-
-  <ion-list>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-img [src]="personData.pic"></ion-img>
-      </ion-thumbnail>
-      <ion-label class="ion-text-start ion-text-wrap">Palavra puxa palavra, uma idéia traz outra, e assim se faz um
-        livro, um governo, ou uma revolução, alguns dizem mesmo que assim é que a natureza compôs as suas espécies
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label class="ion-text-end ion-text-wrap">Faça o que você ama.</ion-label>
-      <ion-thumbnail slot="end">
-        <ion-img [src]="profile.pic"></ion-img>
-      </ion-thumbnail>
-    </ion-item>
-
+  <ion-list *ngIf="user && personData">
+    <div *ngFor="let message of messageExibition">
+      <ion-item *ngIf="!message.sentByMe">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="personData.pic"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="ion-text-start ion-text-wrap"
+          >{{ message.message }}
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="message.sentByMe">
+        <ion-label class="ion-text-end ion-text-wrap">{{
+          message.message
+        }}</ion-label>
+        <ion-thumbnail slot="end">
+          <ion-img [src]="user.pic"></ion-img>
+        </ion-thumbnail>
+      </ion-item>
+    </div>
   </ion-list>
-
 </ion-content>
 
 <ion-item>
-  <ion-input placeholder="Digite aqui..."></ion-input>
+  <ion-input
+    placeholder="Digite aqui..."
+    [(ngModel)]="messageInput"
+    (keyup.enter)="sendMessage()"
+  ></ion-input>
 </ion-item>

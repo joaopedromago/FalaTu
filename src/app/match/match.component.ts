@@ -1,22 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { myProfile, matchesSeeds } from 'src/services/seeds';
+import { Component, OnInit } from "@angular/core";
+import { MatchService } from "src/services";
+import { Match, User } from "src/model";
 
 @Component({
-  selector: 'app-match',
-  templateUrl: './match.component.html',
-  styleUrls: ['./match.component.scss'],
+  selector: "app-match",
+  templateUrl: "./match.component.html",
+  styleUrls: ["./match.component.scss"]
 })
 export class MatchComponent implements OnInit {
-
   public current = 0;
 
-  public profile = myProfile;
+  public user: User;
 
-  public matches = matchesSeeds;
+  public matches: Match[] = [];
 
-  constructor() { }
+  constructor(private matchService: MatchService) {
+    this.matchService.getAll().subscribe((result: any) => {
+      this.matches = result;
+    });
+  }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   public showNext() {
     this.current++;

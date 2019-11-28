@@ -19,7 +19,18 @@ export class UserService {
       );
   }
 
-  insert(User: User) {
+  getUserByKey(key: string): any {
+    return this.db
+      .object(`User/${key}`)
+      .snapshotChanges()
+      .pipe(
+        map(changes => {
+          return { key: changes.payload.key, ...changes.payload.val() };
+        })
+      );
+  }
+
+  insert(User: Partial<User>) {
     return this.db.list("User").push(User);
   }
 

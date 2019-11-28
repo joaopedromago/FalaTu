@@ -13,7 +13,12 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 
 import { environment } from "../environments/environment";
-import { UserService, AuthService } from "../services";
+import {
+  UserService,
+  AuthService,
+  MatchService,
+  MessageService
+} from "../services";
 import { AngularFireAuth } from "angularfire2/auth";
 import { IonicStorageModule } from "@ionic/storage";
 
@@ -34,7 +39,9 @@ import { IonicStorageModule } from "@ionic/storage";
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    MatchService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

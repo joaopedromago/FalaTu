@@ -6,12 +6,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="profile">
+<ion-content *ngIf="user">
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item>
       <ion-label position="stacked">&nbsp;</ion-label>
       <ion-avatar slot="start">
-        <img [src]="profile.pic" />
+        <img [src]="user.pic" />
       </ion-avatar>
       <ion-button expand="block" color="primary">Alterar</ion-button>
       <ion-button slot="end" expand="block" color="danger" (click)="logout()">
@@ -26,7 +26,7 @@
       <ion-input
         required
         type="text"
-        [(ngModel)]="profile.name"
+        [(ngModel)]="user.name"
         (change)="updateUser()"
       ></ion-input>
     </ion-item>
@@ -37,21 +37,21 @@
       </ion-label>
       <ion-datetime
         displayFormat="DD / MM / YYYY"
-        [(ngModel)]="profile.birth"
+        [(ngModel)]="user.birth"
         (ionChange)="updateUser()"
       ></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked"
-        >Distância<ion-text color="success">*</ion-text>: {{profile.range}} km
+        >Distância<ion-text color="success">*</ion-text>: {{user.range}} km
       </ion-label>
       <ion-range
         pin="false"
         min="0"
         max="100"
         color="success"
-        [(ngModel)]="profile.range"
+        [(ngModel)]="user.range"
         (ionChange)="updateUser()"
       >
         <ion-icon slot="end" name="bicycle">km</ion-icon>

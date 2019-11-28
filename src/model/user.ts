@@ -5,4 +5,6 @@ export class User {
   range: number;
   pic: string;
   matchPic: string;
+  key: string;
+  chat: any[];
 }
